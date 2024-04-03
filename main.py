@@ -8,7 +8,6 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
-# from flask_gravatar import Gravatar
 from hashlib import md5
 from dotenv import load_dotenv
 from os import getenv
@@ -94,9 +93,9 @@ class Comment(db.Model):
 
 
 # Line below only required once, when creating DB.
-# with app.app_context():
-#     db.create_all()
-#
+with app.app_context():
+    db.create_all()
+
 
 @app.route('/')
 def get_all_posts():
